@@ -1,0 +1,23 @@
+.row
+  %aside.col-xs-4
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title= @user.name
+      .panel-body
+        %img.media-object.img-rounded.img-responsive{:alt => "", :src => "#{gravatar_url(@user, { size: 500 })}"}/
+    = render 'relationships/follow_button', user: @user
+  .col-xs-8
+    %ul.nav.nav-tabs.nav-justified
+      %li{:class => "#{"active" if current_page?(user_path(@user))}"}
+        = link_to user_path(@user) do
+          Microposts
+          %span.badge= @count_microposts
+      %li{:class => "#{"active" if current_page?(followings_user_path(@user))}"}
+        = link_to followings_user_path(@user) do
+          Followings
+          %span.badge= @count_followings
+      %li{:class => "#{"active" if current_page?(followers_user_path(@user))}"}
+        = link_to followers_user_path(@user) do
+          Followers
+          %span.badge= @count_followers
+    = render 'microposts/microposts', microposts: @microposts, user: @user
