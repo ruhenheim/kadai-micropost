@@ -8,4 +8,4 @@
     = render 'relationships/follow_button', user: @user
   .col-xs-8
     = render 'right_tabs'
-    = render 'users', users: @followings
+    = render 'microposts/microposts', microposts: @favorites, user: @user

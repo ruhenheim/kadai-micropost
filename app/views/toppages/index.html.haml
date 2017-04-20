@@ -5,6 +5,8 @@
         .form-group
           = f.text_area :content, class: 'form-control', rows: 5
         = f.submit 'Post', class: 'btn btn-primary btn-block'
+      %hr
+      = link_to 'お気に入り', favorites_user_path(current_user), class: 'btn btn-success btn-block'
     .col-xs-8
       = render 'microposts/microposts', microposts: @microposts, user: current_user
 - else

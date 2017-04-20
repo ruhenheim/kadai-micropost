@@ -1,0 +1,18 @@
+%ul.nav.nav-tabs.nav-justified
+  %li{:class => "#{"active" if current_page?(user_path(@user))}"}
+    = link_to user_path(@user) do
+      Microposts
+      %span.badge= @count_microposts
+  %li{:class => "#{"active" if current_page?(followings_user_path(@user))}"}
+    = link_to followings_user_path(@user) do
+      Followings
+      %span.badge= @count_followings
+  %li{:class => "#{"active" if current_page?(followers_user_path(@user))}"}
+    = link_to followers_user_path(@user) do
+      Followers
+      %span.badge= @count_followers
+  - if current_user == @user
+    %li{:class => "#{"active" if current_page?(favorites_user_path(@user))}"}
+      = link_to favorites_user_path(@user) do
+        Favorites
+        %span.badge= @count_favorites
