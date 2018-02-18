@@ -1,5 +1,9 @@
 # README
 
+Check demo app on Heroku.  
+
+https://ruhenheim-kadai-microposts.herokuapp.com/
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
