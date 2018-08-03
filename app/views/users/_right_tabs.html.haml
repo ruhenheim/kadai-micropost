@@ -12,7 +12,7 @@
       Followers
       %span.badge= @count_followers
   - if current_user == @user
-    %li{:class => "#{"active" if current_page?(favorites_user_path(@user))}"}
-      = link_to favorites_user_path(@user) do
+    %li{:class => "#{"active" if current_page?(likes_user_path(@user))}"}
+      = link_to likes_user_path(@user) do
         Favorites
         %span.badge= @count_favorites
