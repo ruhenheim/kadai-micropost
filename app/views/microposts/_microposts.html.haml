@@ -3,12 +3,12 @@
     - writer = micropost.user
     %li.media
       .media-left
-        %img.media-object.img-rounded{:alt => "", :src => "#{gravatar_url(writer, options = {size: 50})}"}/
+        %img.media-object.img-rounded{alt: "", src: "#{gravatar_url(writer, options = {size: 50})}"}
       .media-body
         %div
           = link_to writer.name, user_path(writer)
           %span.text-muted<
-            posted at #{micropost.created_at}
+            posted at #{I18n.l micropost.created_at, format: '%Y/%m/%d'}
         %div
           %p= micropost.content
         %div

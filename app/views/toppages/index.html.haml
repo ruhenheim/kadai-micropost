@@ -1,13 +1,13 @@
 - if logged_in?
   .row
-    %aside.col-md-4
+    %aside.col-md-4{style: "margin-bottom: 1rem;"}
       = form_for(@micropost) do |f|
         .form-group
           = f.text_area :content, class: 'form-control', rows: 5
         = f.submit 'Post', class: 'btn btn-primary btn-block'
       %hr
       = link_to 'お気に入り', likes_user_path(current_user), class: 'btn btn-success btn-block'
-    .col-xs-8
+    .col-md-8{style: "margin-bottom: 1rem;"}
       = render 'microposts/microposts', microposts: @microposts, user: current_user
 - else
   .conter.jumbotron
