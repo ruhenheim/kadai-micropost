@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:index, :show, :followings, :followers, :likes]
+  before_action :require_user_logged_in, only: [:index, :show, :followings, :followers, :likes, :destroy]
   before_action :set_user, only: [:show, :followings, :followers, :likes]
   def index
     @users = User.all.page(params[:page])
@@ -32,6 +32,17 @@ class UsersController < ApplicationController
   def likes
     @favorites = @user.favorite_microposts.page(params[:page])
     counts @user
+  end
+  def destroy
+    user = User.find(params[:id])
+    if current_user == user
+      session[:user_id] = nil
+      flash[:success] = '退会操作は成功です user.destroy'
+      redirect_to root_url
+    else
+      flash[:danger] = '退会操作は他ユーザへの操作のため出来ません'
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   private

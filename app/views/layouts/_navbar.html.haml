@@ -21,6 +21,9 @@
                 %li= link_to 'My favorites', likes_user_path(current_user)
                 %li.divider{:role => "separator"}
                 %li= link_to 'Logout', logout_path, method: :delete
+                %li.divider{:role => "separator"}
+                %li= link_to '退会', current_user, method: :delete
+
           - else
             %li= link_to 'Signup', signup_path
             %li= link_to 'Login', login_path
