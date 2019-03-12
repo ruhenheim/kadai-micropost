@@ -9,9 +9,12 @@
 # ダミーユーザ用アカウントと、そのテストデータ
 10.times do |c|
   _name = "test" + c.to_s
-  user = User.create(name: _name, email: "#{_name}@test.jp", password: "test")
+  user = User.create(
+            name: _name,
+            email: "#{_name}@test.jp",
+            password: "test"
+          )
   100.times do |m|
-    _content = "test post " + m.to_s
-    user.microposts.create(content: _content)
+    user.microposts.create(content: "test post " + m.to_s)
   end
 end
